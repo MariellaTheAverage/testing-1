@@ -31,6 +31,5 @@ jobs:
         with:
           name: app-bin
       - run: sudo apt update -y && sudo apt-get install gcc g++ make cmake
-      - run: cd googletest/googletest && ls -la 
       - run: make test
     
