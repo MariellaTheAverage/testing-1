@@ -1,0 +1,34 @@
+name: CI/CD test
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - run: sudo apt update -y && sudo apt-get install gcc g++ make
+      - run: make app
+      - uses: actions/upload-artifact@v3
+        with:
+          name: app-bin
+          path: eq-solver
+  
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - uses: actions/download-artifact@v3
+        with:
+          name: app-bin
+      - run: sudo apt update -y && sudo apt-get install gcc g++ make
+      - run: make test
+    
