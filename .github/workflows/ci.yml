@@ -33,6 +33,6 @@ jobs:
           name: app-bin
       - run: sudo apt update -y && sudo apt-get install gcc g++ make cmake
       - run: git submodule init
-      - run: git submodule update
+      - run: git submodule update --init
       - run: make test
     
