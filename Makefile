@@ -19,7 +19,7 @@ gtest-build:
 	cd $(GTEST_DIR)/build && cmake .. && make
 
 app: $(APP_SRCS) $(APP_HEAD)
-	$(CC) $(CFLAGS) -o eq_solver $(APP_SRCS)
+	$(CC) $(CFLAGS) -o eq_solver $(APP_SRCS) -lm
 
 test: app gtest-build $(TEST_SRCS) $(APP_SRCS) $(APP_HEAD)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o eq_solver_tests $(TEST_SRCS) $(APP_SRCS) -I$(GTEST_DIR)/include -L$(GTEST_DIR)/lib -lgtest -lgtest_main -pthread
