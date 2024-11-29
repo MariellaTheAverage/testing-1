@@ -13,7 +13,8 @@ jobs:
         with:
           submodules: true
       - run: sudo apt update -y && sudo apt-get install gcc g++ make cmake
-      - run: make clean && make -n app
+      - run: make clean
+      - run: make -B app
       - uses: actions/upload-artifact@v3
         with:
           name: app-bin
