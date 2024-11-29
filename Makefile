@@ -16,7 +16,8 @@ all: app
 
 gtest-build:
 	pwd
-	ls -la $pwd/$(GTEST_DIR)
+	ls -la
+	ls -la $(GTEST_DIR)
 	mkdir -p $(GTEST_DIR)/build
 	cd $(GTEST_DIR)/build && cmake .. && make
 
