@@ -1,5 +1,4 @@
 #include "main.h"
-#include <math.h>
 
 int quadratic(double a, double b, double c, double* roots) {
     double disc = b * b - 4 * a * c;
