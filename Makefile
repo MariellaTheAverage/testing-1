@@ -15,6 +15,8 @@ TEST_SRCS = $(TEST_DIR)/main.cpp
 all: app
 
 gtest-build:
+	git submodule add https://github.com/google/googletest.git
+	git submodule update --init
 	cat .gitmodules
 	ls -la
 	ls -la $(GTEST_DIR)
