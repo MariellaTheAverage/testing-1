@@ -15,7 +15,7 @@ TEST_SRCS = $(TEST_DIR)/main.cpp
 all: app
 
 gtest-build:
-	pwd
+	cat .gitmodules
 	ls -la
 	ls -la $(GTEST_DIR)
 	mkdir -p $(GTEST_DIR)/build
