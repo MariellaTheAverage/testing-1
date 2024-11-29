@@ -15,7 +15,7 @@ TEST_SRCS = $(TEST_DIR)/main.cpp
 all: app
 
 gtest-build:
-	cd $(GTEST_DIR) && ls -la
+	ls -la $(GTEST_DIR)
 	mkdir -p $(GTEST_DIR)/build
 	cd $(GTEST_DIR)/build && cmake .. && make
 
