@@ -16,18 +16,14 @@ all: app
 
 gtest-build:
 	git submodule add https://github.com/google/googletest.git
-	git submodule update --init
-	cat .gitmodules
-	ls -la
-	ls -la $(GTEST_DIR)
 	mkdir -p $(GTEST_DIR)/build
 	cd $(GTEST_DIR)/build && cmake .. && make
 
 app: $(APP_SRCS) $(APP_HEAD)
 	$(CC) $(CFLAGS) -o eq_solver $(APP_SRCS) -lm
 
-test: app gtest-build $(TEST_SRCS) $(APP_SRCS) $(APP_HEAD)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o eq_solver_tests $(TEST_SRCS) $(APP_SRCS) -I$(GTEST_DIR)/include -L$(GTEST_DIR)/lib -lgtest -lgtest_main -pthread
+test: app $(TEST_SRCS) $(APP_SRCS) $(APP_HEAD)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o eq_solver_tests $(TEST_SRCS) $(APP_SRCS) -I$(GTEST_DIR)/include -L$(GTEST_DIR)/lib -lgtest -lgtest_main -lm -pthread
 	./eq_solver_tests
 
 clean:
