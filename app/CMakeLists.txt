@@ -12,7 +12,7 @@ set(SOURCES
         )
 
 set(HEADERS
-        myfunc.h
+        main.h
         )
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
