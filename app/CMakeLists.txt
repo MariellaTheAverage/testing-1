@@ -8,7 +8,7 @@ add_definitions ("-Wall -Wextra -Wpedantic -Weffc++ -Wconversion -Wunreachable-c
 
 set(SOURCES
         main.c
-        myfunc.c
+        func.c
         )
 
 set(HEADERS
